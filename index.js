@@ -29,7 +29,8 @@ const cats = [{
   sex: 'Female',
   age: 2,
   breed: 'Bengal',
-  story: 'Thrown on the street'
+  story: 'Thrown on the street',
+  animal: 'cat'
 },
 {
   imageURL: 'https://media.licdn.com/dms/image/C4D03AQHZ-6yyqVB_mA/profile-displayphoto-shrink_800_800/0?e=1557360000&v=beta&t=03_sR7NHm_oHgyV-dRjHQ_gtVsQzMZKZjkoJPRRDaI4',
@@ -38,7 +39,8 @@ const cats = [{
   sex: 'Male',
   age: 6,
   breed: 'NorEaster',
-  story: 'Thinkful grad'
+  story: 'Thinkful grad',
+  animal: 'cat'
 },
 ];
 
@@ -49,7 +51,8 @@ const dogs = [{
   sex: 'Male',
   age: 3,
   breed: 'Golden Retriever',
-  story: 'Owner Passed away'
+  story: 'Owner Passed away', 
+  animal: 'dog'
 },
 {
   imageURL: 'https://media.licdn.com/dms/image/C5103AQEv9ADgSV2xOg/profile-displayphoto-shrink_800_800/0?e=1557360000&v=beta&t=nCEDVVxrTlsr2_6qEcGkjgzPEMh2w3m6a6G2j7Gl0SY',
@@ -58,7 +61,8 @@ const dogs = [{
   sex: 'Male',
   age: 5,
   breed: 'Marylander',
-  story: 'Thinkful grad'
+  story: 'Thinkful grad',
+  animal: 'dog'
 }
 ];
 
