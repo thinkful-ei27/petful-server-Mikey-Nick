@@ -20,6 +20,16 @@ const cats = [{
   story: 'Thinkful grad',
   animal: 'cat'
 },
+{
+  imageURL: 'https://static.wixstatic.com/media/2cd43b_dace4f1afa444d2391e72a5099668221~mv2.png?dn=',
+  imageDescription: `So sad an lonely, adopt it!`,
+  name: 'morrosey',
+  sex: 'Male',
+  age: 5,
+  breed: 'tabby',
+  story: 'hes hungry',
+  animal: 'cat'
+},
 ];
 
 const dogs = [{
@@ -40,6 +50,16 @@ const dogs = [{
   age: 5,
   breed: 'Marylander',
   story: 'Thinkful grad',
+  animal: 'dog'
+},
+{
+  imageURL: 'https://static.wixstatic.com/media/2cd43b_6fe1cf226e2841c2866298b5bcfc4a82~mv2.png?dn=',
+  imageDescription: `ruffles is hungry`,
+  name: 'ruffles',
+  sex: 'Male',
+  age: 12,
+  breed: 'beardador',
+  story: 'ran into a wall, got amnesia',
   animal: 'dog'
 }
 ];
@@ -93,21 +113,41 @@ class Queue {
     return node.value;
   }
 
-  peek(){
-    return this.first.value;
+  peek() {
+    if (this.first)
+      return this.first.value;
+    else return null;
   }
 }
 
 const Dogs = new Queue();
 Dogs.enqueue(dogs[0]);
 Dogs.enqueue(dogs[1]);
+Dogs.enqueue(dogs[2]);
 
 const Cats = new Queue();
 Cats.enqueue(cats[0]);
 Cats.enqueue(cats[1]);
+Cats.enqueue(cats[2]);
 
 
-module.exports = { Dogs, Cats };
+const catResupply = () => {
+  Cats.enqueue(cats[1]);
+  Cats.enqueue(cats[2]);
+  Cats.enqueue(cats[0]);
+ 
+
+};
+
+const dogResupply = () => {
+  Dogs.enqueue(dogs[0]);
+  Dogs.enqueue(dogs[2]);
+  Dogs.enqueue(dogs[1]);
+ 
+};
+
+
+module.exports = { Dogs, Cats, dogResupply, catResupply };
 
 
 

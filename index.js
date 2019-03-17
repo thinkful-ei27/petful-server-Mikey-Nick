@@ -3,7 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const { Dogs, Cats } = require('./queue.js');
+const { Dogs, Cats, dogResupply, catResupply } = require('./queue.js');
 
 const { PORT, CLIENT_ORIGIN } = require('./config');
 // const { dbConnect } = require('./db-mongoose');
@@ -22,20 +22,24 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
-app.get(`/api/cat`, (req, res, next) => {
+app.get('/api/cat', (req, res, next) => {
   const cat = Cats.peek();
   if (!cat) {
-    return new Error('no Cats left');
+    catResupply();
+    const newCat = Cats.peek();
+    return res.send(newCat);
   }
   return res.send(cat)
     .catch(error => {
       error.status(404).send(error.message);
     });
-})
+});
 app.get('/api/dog', (req, res, next) => {
   const dog = Dogs.peek();
   if (!dog) {
-    return new Error('No dogs Left!');
+    dogResupply();
+    const newDog = Dogs.peek();
+    return res.send(newDog);
   } else
     return res.send(dog)
       .catch(error => {
